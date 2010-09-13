@@ -1,0 +1,47 @@
+NAME
+    asterisk-func_dns - DNS() function for Asterisk 1.4
+
+SYNOPSIS
+
+    Assuming you have a macro-dial-out, this dialplan snippet will sequentially
+    fork calls across all the IPv4 A record IP addresses returned by a DNS
+    query for proxies.mydomain.com.
+
+      exten => _X.,n(get_proxies),Set(proxies=${DNS(proxies.mydomain.com)})
+      exten => _X.,n,Set(idx=0)
+      exten => _X.,n(loop_top),Set(idx=$[${idx}+1])
+      exten => _X.,n,Set(proxy=${CUT(proxies,\,,${idx})})
+      exten => _X.,n,GotoIf($["${proxy}" != ""]?do_dial:failed)
+      exten => _X.,n(do_dial),Macro(dial-out|${S_EXTEN}|${proxy})
+      exten => _X.,n,Goto(loop_top)
+      exten => _X.,n(failed),Hangup
+
+DESCRIPTION
+    This function allows you to do an IPv4 A-record lookup from inside your
+    dialplan script without spawning external processes, etc.
+
+    If multiple IP addresses are returned, this function includes them all,
+    separated by commas. This allows your dialplan script to sequentially
+    dial the possible hosts.
+
+    I use this to load balance outgoing calls via DNS-based load balancing.
+    I want to ultimately call Dial() with an IP address because my DNS records
+    change up to the second based on my load balancer agent's probing of
+    the proxy servers, and I want to ensure all the SIP transactions and
+    messages within a dialog go to the same place.
+
+TODO
+    * Additional record types (SRV)
+
+    * Forward port to Asterisk 1.6
+
+AUTHOR
+    Chase Venters <chase.venters@gmail.com>
+
+COPYRIGHT
+    Copyright (c) 2010 Chase Venters. All rights reserved. This module is
+    released under the same terms as Asterisk (GPLv2).
+
+URL
+    http://github.com/cventers/asterisk-func_dns
+

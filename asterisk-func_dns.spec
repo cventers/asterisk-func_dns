@@ -1,10 +1,10 @@
 Name: asterisk14-func_dns
 Version: 1.0.0
-Release: 001
+Release: 002
 Summary: DNS lookup function for Asterisk
 Group: Applications/System
 License: GPLv2
-Packager: Chase Venters <chase@exceleron.com>
+Packager: Chase Venters <chase.venters@gmail.com>
 Source0: asterisk-func_dns.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 

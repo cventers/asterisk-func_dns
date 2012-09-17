@@ -1,5 +1,5 @@
 NAME
-    asterisk-func_dns - DNS() function for Asterisk 1.4
+    asterisk-func_dns - DNS() function for Asterisk
 
 SYNOPSIS
 
@@ -33,13 +33,11 @@ DESCRIPTION
 TODO
     * Additional record types (SRV)
 
-    * Forward port to Asterisk 1.6
-
 AUTHOR
     Chase Venters <chase.venters@gmail.com>
 
 COPYRIGHT
-    Copyright (c) 2010 Chase Venters. All rights reserved. This module is
+    Copyright (c) 2010-2012 Chase Venters. All rights reserved. This module is
     released under the same terms as Asterisk (GPLv2).
 
 URL

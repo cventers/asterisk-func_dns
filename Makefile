@@ -1,5 +1,6 @@
 #
 # Makefile, based on the Asterisk Makefile, Coypright (C) 1999, Mark Spencer
+# Modified by Chase Venters for func_dns
 #
 # Copyright (C) 2002,2003 Junghanns.NET GmbH
 #
@@ -11,13 +12,9 @@
 
 .EXPORT_ALL_VARIABLES:
 
-#
-# app_konference defines which can be passed on the command-line
-#
-
 INSTALL_PREFIX :=
-INSTALL_MODULES_DIR := $(INSTALL_PREFIX)/usr/lib/asterisk/modules
-
+ASTERISK_MODULES_DIR := $(shell if [ -d /usr/lib64/asterisk/modules ]; then echo /usr/lib64/asterisk/modules; else echo /usr/lib/asterisk/modules; fi)
+INSTALL_MODULES_DIR := $(INSTALL_PREFIX)/$(ASTERISK_MODULES_DIR)
 ASTERISK_INCLUDE_DIR ?= ../asterisk/include
 
 RELEASE = 1.4

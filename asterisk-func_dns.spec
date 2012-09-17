@@ -8,6 +8,8 @@ License: GPLv2
 Packager: Chase Venters <chase.venters@gmail.com>
 Source0: asterisk-func_dns.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Requires: asterisk
+BuildRequires: asterisk-devel
 
 %description
 This third-party Asterisk addon provides the DNS() function which looks up

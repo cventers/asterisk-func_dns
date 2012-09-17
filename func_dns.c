@@ -36,7 +36,7 @@
 #include "asterisk/utils.h"
 #include "asterisk/app.h"
 
-static int dns_lookup(struct ast_channel *chan, char *cmd, char *data,
+static int dns_lookup(struct ast_channel *chan, const char *cmd, char *data,
 			 char *buf, size_t len)
 {
 	unsigned int ip_len, bytes_used = 0;

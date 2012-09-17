@@ -1,6 +1,7 @@
-Name: asterisk14-func_dns
-Version: 1.0.0
-Release: 002
+Name: asterisk-func_dns
+Obsoletes: asterisk14-func_dns
+Version: 1.0.1
+Release: 001
 Summary: DNS lookup function for Asterisk
 Group: Applications/System
 License: GPLv2

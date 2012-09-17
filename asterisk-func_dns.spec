@@ -25,6 +25,5 @@ make install INSTALL_PREFIX=%{buildroot}
 rm -rf %{buildroot}
 
 %files
-/usr/lib/asterisk/modules/func_dns.so
-
+%{_libdir}/asterisk/modules/func_dns.so
 

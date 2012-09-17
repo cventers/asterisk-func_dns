@@ -106,6 +106,6 @@ rpm: dist
 	done; \
 	mv asterisk-func_dns.tar.gz $$TOPDIR/SOURCES; \
 	rpmbuild -ba asterisk-func_dns.spec --define "_topdir $$TOPDIR" --define "release 1"; \
-	mv $$TOPDIR/SRPMS/*.rpm $$TOPDIR/RPMS/*/*.rpm .; \      
+	mv $$TOPDIR/SRPMS/*.rpm $$TOPDIR/RPMS/*/*.rpm .; \
 	rm -rf $$TOPDIR
 
